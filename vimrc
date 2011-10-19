@@ -9,16 +9,33 @@ set mouse=a
 source $VIMRUNTIME/mswin.vim
 behave mswin
 
+set nocompatible
+
+set tabstop=2
+set shiftwidth=2
+set softtabstop=2
+set expandtab
+set encoding=utf-8
+set enc=utf-8
+set fileencodings=utf-8,latin2,latin2
+set ignorecase
+set backspace=indent,eol,start
+set number
+set smartindent
+set linebreak
+
 
 " UI DESIGN
 " =========
 
 colorscheme molokai
 set t_Co=256 " enable 256 colors within vim - grey background, proper syntax highlighting etc.
-set gfn=Menlo:h15
+set gfn=Menlo:h13
 set guioptions-=T "remove toolbar
-set smartindent
-set linebreak
+
+" start fullscreen
+set lines=999
+set columns=999
 
 syntax on
 filetype plugin indent on
@@ -44,15 +61,114 @@ set directory=~/.vim_backups//
 
 let mapleader = ","
 
+nnoremap <leader><space> :noh<cr>
+
+
+" SEARCH
+" ------
+set hlsearch " highlight search terms
+set incsearch " start hihglighting (partial) matches as soon as you start typing letters after '/'
+
+" search through files' contents
+nnoremap <leader>a :Grep 
+
+
+" Custom Gimmicks
+" ---------------
+
+" shortcut for hash rocket
+imap <C-q> <Space>=><Space>
+
+" TABS
+" ----
+map <C-t><up> :tabr<cr>
+map <C-t><down> :tabl<cr>
+map <C-t><left> :tabp<cr>
+map <C-t><right> :tabn<cr>
+map <C-t><z> :tabnew<cr>
+nmap <C-Delete> :tabclose<CR>
+
+
 " USABILITY
 " ---------
+
+nnoremap <C-^> :q<CR>
 
 "command alias for saving
 :ca W w
 
+" move by display lines
+nnoremap j gj
+nnoremap k gk
+vnoremap j gj
+vnoremap k gk
+nnoremap <Down> gj
+nnoremap <Up> gk
+nnoremap <S-Down> vgj
+nnoremap <S-Up> vgk
+vnoremap <S-Down> gj
+vnoremap <S-Up> gk
+vnoremap <Down> gj
+vnoremap <Up> gk
+noremap <Down> gj
+noremap <Up> gk
+inoremap <Down> <C-o>gj
+inoremap <Up> <C-o>gk
+
+" CTRL-A is Select all
+noremap  <C-A> gggH<C-O>G
+inoremap <C-A> <C-O>gg<C-O>gH<C-O>G
+cnoremap <C-A> <C-C>gggH<C-O>G
+onoremap <C-A> <C-C>gggH<C-O>G
+snoremap <C-A> <C-C>gggH<C-O>G
+xnoremap <C-A> <C-C>ggVG
+
+" SPLITS
+" ======
+" window
+nmap <leader>H  :topleft  vnew<CR>
+nmap <leader>L  :botright vnew<CR>
+nmap <leader>K  :topleft  new<CR>
+nmap <leader>J  :botright new<CR>
+
+" buffer
+nmap <leader>h  :leftabove  vnew<CR>
+nmap <leader>l  :rightbelow vnew<CR>
+nmap <leader>k  :leftabove  new<CR>
+nmap <leader>j  :rightbelow new<CR>
+
+
+" smart home key for indented lines: go to first non-blank character (not start of line) of display line (not
+" numbered line)
+nnoremap <home> g^
+nnoremap <end> g$
+vnoremap <home> g^
+vnoremap <end> g$
+"alternatively: vg^ to automatically enter visual mode first
+nnoremap <S-home> vg^ 
+nnoremap <S-end> vg$
+inoremap <home> <C-O>g^
+inoremap <end> <C-O>g$
+inoremap <S-home> <C-O>vg^ 
+inoremap <S-end> <C-O>vg$
+vnoremap <S-home> g^ 
+vnoremap <S-end> g$
+
+
+" File & Folder Shortcuts
+" =======================
+
+nnoremap <leader>v :tabnew $MYVIMRC<CR>
+nnoremap <leader>V :source $MYVIMRC<CR>
+
 
 "PLUGINS
 "=======
+
+" COMMAND T
+" ---------
+nmap <leader>T :CommandTFlush<CR>
+
 
 " NERDTree
 " --------
@@ -63,6 +179,7 @@ let NERDTreeWinPos='right'
 " map <F7> to toggle NERDTree window
 inoremap <silent> <F7> <C-O>:NERDTreeToggle<CR>
 nnoremap <silent> <F7> :NERDTreeToggle<CR>
+
 
 " NERDTreeToggle
 " --------------
