@@ -1,6 +1,4 @@
 call pathogen#infect()
-" call pathogen#runtime_append_all_bundles() " deprecated?
-" call pathogen#helptags() " deprecated?
 
 " GENERAL SETUP
 " -------------
@@ -10,7 +8,6 @@ source $VIMRUNTIME/mswin.vim
 behave mswin
 
 set nocompatible
-
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -137,22 +134,26 @@ nmap <leader>l  :rightbelow vnew<CR>
 nmap <leader>k  :leftabove  new<CR>
 nmap <leader>j  :rightbelow new<CR>
 
-
 " smart home key for indented lines: go to first non-blank character (not start of line) of display line (not
 " numbered line)
-nnoremap <home> g^
-nnoremap <end> g$
-vnoremap <home> g^
-vnoremap <end> g$
+nmap <D-left> g^
+nmap <D-right> g$
+vmap <D-left> g^
+vmap <D-right> g$
+imap <D-left> <C-O>g^
+imap <D-right> <C-O>g$
+
 "alternatively: vg^ to automatically enter visual mode first
-nnoremap <S-home> vg^ 
-nnoremap <S-end> vg$
-inoremap <home> <C-O>g^
-inoremap <end> <C-O>g$
-inoremap <S-home> <C-O>vg^ 
-inoremap <S-end> <C-O>vg$
-vnoremap <S-home> g^ 
-vnoremap <S-end> g$
+nmap <S-D-left> vg^ <S-left>
+nmap <S-D-right> vg$
+imap <S-D-left> <C-O><S-D-left>
+imap <S-D-right> <C-O><S-D-right>
+
+" best solution I could find. adding shift to the shortcut ends visual mode =(
+vmap <D-left> g^
+vmap <D-right> g$
+vmap <S-D-left> h
+vmap <S-D-right> l
 
 
 " File & Folder Shortcuts
