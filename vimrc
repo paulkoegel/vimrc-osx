@@ -40,7 +40,8 @@ set linebreak
 
 colorscheme molokai
 set t_Co=256 " enable 256 colors within vim - grey background, proper syntax highlighting etc.
-set gfn=Menlo:h13
+"set gfn=Menlo:h13
+set gfn=Inconsolata:h15
 set guioptions-=T "remove toolbar
 
 " start fullscreen
@@ -136,54 +137,54 @@ xnoremap <C-A> <C-C>ggVG
 " SPLITS
 " ======
 " window
-nmap <leader>H  :topleft  vnew<CR>
-nmap <leader>L  :botright vnew<CR>
-nmap <leader>K  :topleft  new<CR>
-nmap <leader>J  :botright new<CR>
+nmap <leader>H :topleft  vnew<CR>
+nmap <leader>L :botright vnew<CR>
+nmap <leader>K :topleft  new<CR>
+nmap <leader>J :botright new<CR>
 
 " buffer
-nmap <leader>h  :leftabove  vnew<CR>
-nmap <leader>l  :rightbelow vnew<CR>
-nmap <leader>k  :leftabove  new<CR>
-nmap <leader>j  :rightbelow new<CR>
+nmap <leader>h :leftabove  vnew<CR>
+nmap <leader>l :rightbelow vnew<CR>
+nmap <leader>k :leftabove  new<CR>
+nmap <leader>j :rightbelow new<CR>
 
 " one word forward / back
-nmap <A-left> b
-nmap <A-right> w
-imap <A-left> <C-O>b
-imap <A-right> <C-O>w
-vmap <A-left> b
-vmap <A-right> w
-smap <A-left> <C-O>b
-smap <A-right> <C-O>w
+nnoremap <A-left> b
+nnoremap <A-right> w
+inoremap <A-left> <C-O>b
+inoremap <A-right> <C-O>w
+vnoremap <A-left> b
+vnoremap <A-right> w
+snoremap <A-left> <C-O>b
+snoremap <A-right> <C-O>w
 
-nmap <S-A-left> vB
-nmap <S-A-right> vW<S-left>
-imap <S-A-left> <C-O>vB
-imap <S-A-right> <C-O>vW<S-left>
+nnoremap <S-A-left> vB
+nnoremap <S-A-right> vW<S-left>
+inoremap <S-A-left> <C-O>vB
+inoremap <S-A-right> <C-O>vW<S-left>
 
 " smart home key for indented lines: go to first non-blank character (not start of line) of display line (not
 " numbered line)
 nnoremap <D-left> g^
 nnoremap <D-right> g$
-vmap <D-left> g^
-vmap <D-right> g$
-imap <D-left> <C-O>g^
-imap <D-right> <C-O>g$
+vnoremap <D-left> g^
+vnoremap <D-right> g$
+inoremap <D-left> <C-O>g^
+inoremap <D-right> <C-O>g$
 
 "alternatively: vg^ to automatically enter visual mode first
-nmap <S-D-left> vg^ <S-left>
-nmap <S-D-right> vg$
-imap <S-D-left> <C-O>vg^ <S-left>
-imap <S-D-right> <C-O>vg$
+nnoremap <S-D-left> vg^ <S-left>
+nnoremap <S-D-right> vg$
+inoremap <S-D-left> <C-O>vg^ <S-left>
+inoremap <S-D-right> <C-O>vg$
 
 " best solution I could find. adding shift to the shortcut ends visual mode =(
-vmap <D-left> g^
-vmap <D-right> g$
+vnoremap <D-left> g^
+vnoremap <D-right> g$
 
 " start/end of file
-vmap <D-up> 1G
-vmap <D-down> Gg$
+vnoremap <D-up> 1G
+vnoremap <D-down> Gg$
 
 
 " File & Folder Shortcuts
