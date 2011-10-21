@@ -1,3 +1,16 @@
+" Cheat Sheet
+" ===========
+" <A> Alt
+" <S> Shift
+" <C> Control
+" <D> Command (or apple key on Macs)
+" <M> Meta (Windows key)
+"
+" <CR> Carriage Return (Enter)
+" <C-O> switch to normal mode for the following alias command
+" <left>, <right>, <up>, <down> arrow keys
+
+
 call pathogen#infect()
 
 " GENERAL SETUP
@@ -134,10 +147,25 @@ nmap <leader>l  :rightbelow vnew<CR>
 nmap <leader>k  :leftabove  new<CR>
 nmap <leader>j  :rightbelow new<CR>
 
+" one word forward / back
+nmap <A-left> b
+nmap <A-right> w
+imap <A-left> <C-O>b
+imap <A-right> <C-O>w
+vmap <A-left> b
+vmap <A-right> w
+smap <A-left> <C-O>b
+smap <A-right> <C-O>w
+
+nmap <S-A-left> vB
+nmap <S-A-right> vW<S-left>
+imap <S-A-left> <C-O>vB
+imap <S-A-right> <C-O>vW<S-left>
+
 " smart home key for indented lines: go to first non-blank character (not start of line) of display line (not
 " numbered line)
-nmap <D-left> g^
-nmap <D-right> g$
+nnoremap <D-left> g^
+nnoremap <D-right> g$
 vmap <D-left> g^
 vmap <D-right> g$
 imap <D-left> <C-O>g^
@@ -146,14 +174,16 @@ imap <D-right> <C-O>g$
 "alternatively: vg^ to automatically enter visual mode first
 nmap <S-D-left> vg^ <S-left>
 nmap <S-D-right> vg$
-imap <S-D-left> <C-O><S-D-left>
-imap <S-D-right> <C-O><S-D-right>
+imap <S-D-left> <C-O>vg^ <S-left>
+imap <S-D-right> <C-O>vg$
 
 " best solution I could find. adding shift to the shortcut ends visual mode =(
 vmap <D-left> g^
 vmap <D-right> g$
-vmap <S-D-left> h
-vmap <S-D-right> l
+
+" start/end of file
+vmap <D-up> 1G
+vmap <D-down> Gg$
 
 
 " File & Folder Shortcuts
@@ -194,3 +224,7 @@ let g:nerdtree_tabs_autoclose = 1
 
 " Synchronize view of all NERDTree windows (scroll and cursor position)
 let g:nerdtree_tabs_synchronize_view = 1
+
+" EasyGrep (cf. http://dailyconfig.googlecode.com/svn/trunk/.vimrc)
+" --------
+let g:EasyGrepRecursive = 1
