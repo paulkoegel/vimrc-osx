@@ -16,11 +16,12 @@ call pathogen#infect()
 " GENERAL SETUP
 " -------------
 
-set mouse=a
-source $VIMRUNTIME/mswin.vim
-behave mswin
-
 set nocompatible
+
+set mouse=a
+"source $VIMRUNTIME/mswin.vim
+"behave mswin
+
 set tabstop=2
 set shiftwidth=2
 set softtabstop=2
@@ -39,9 +40,13 @@ set linebreak
 " =========
 
 colorscheme molokai
+"syntax enable
+"set background=dark
+"colorscheme solarized
+
 set t_Co=256 " enable 256 colors within vim - grey background, proper syntax highlighting etc.
-"set gfn=Menlo:h13
-set gfn=Inconsolata:h15
+set gfn=Menlo:h14
+"set gfn=Inconsolata:h15
 set guioptions-=T "remove toolbar
 
 " start fullscreen
@@ -89,6 +94,7 @@ nnoremap <leader>a :Grep
 
 " shortcut for hash rocket
 imap <C-q> <Space>=><Space>
+imap <C-w> <C-O>i
 
 " TABS
 " ----
@@ -158,10 +164,10 @@ vnoremap <A-right> w
 snoremap <A-left> <C-O>b
 snoremap <A-right> <C-O>w
 
-nnoremap <S-A-left> vB
-nnoremap <S-A-right> vW<S-left>
-inoremap <S-A-left> <C-O>vB
-inoremap <S-A-right> <C-O>vW<S-left>
+nnoremap <S-A-left> vb
+nnoremap <S-A-right> vw<S-left>
+inoremap <S-A-left> <C-O>vb
+inoremap <S-A-right> <C-O>vw<S-left>
 
 " smart home key for indented lines: go to first non-blank character (not start of line) of display line (not
 " numbered line)
@@ -171,13 +177,11 @@ vnoremap <D-left> g^
 vnoremap <D-right> g$
 inoremap <D-left> <C-O>g^
 inoremap <D-right> <C-O>g$
-
 "alternatively: vg^ to automatically enter visual mode first
 nnoremap <S-D-left> vg^ <S-left>
 nnoremap <S-D-right> vg$
 inoremap <S-D-left> <C-O>vg^ <S-left>
 inoremap <S-D-right> <C-O>vg$
-
 " best solution I could find. adding shift to the shortcut ends visual mode =(
 vnoremap <D-left> g^
 vnoremap <D-right> g$
@@ -190,15 +194,35 @@ vnoremap <D-down> Gg$
 " File & Folder Shortcuts
 " =======================
 
-nnoremap <leader>v :tabnew $MYVIMRC<CR>
-nnoremap <leader>V :source $MYVIMRC<CR>
+" VIMRC
+nnoremap <leader>gv :tabnew $MYVIMRC<CR>
+nnoremap <leader>gV :source $MYVIMRC<CR>
 
+" map ,v and ,e to open files in the same directory as the current file
+" source: destroy all software screencasts: vim file navigation
+"cnoremap %% <C-R>=expand('%:h').'/'<CR>
+cnoremap %% <C-R>=expand('%:h')<CR>
+map <leader>e :edit %%
+map <leader>v :view %%
+
+function! RenameFile()
+  let old_name = expand('%')
+  let new_name = input('New file name: ', expand('%'))
+  if new_name != '' && new_name != old_name
+    exec ':saveas ' . new_name
+    exec ':silent !rm ' . old_name
+    redraw!
+  endif
+endfunction
+map <leader>n :call RenameFile()<CR>
 
 "PLUGINS
 "=======
 
 " COMMAND T
 " ---------
+"  defaults to <leader> t
+nmap <leader>t :CommandTFlush<CR>
 nmap <leader>T :CommandTFlush<CR>
 
 
