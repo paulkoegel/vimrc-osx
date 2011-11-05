@@ -225,6 +225,10 @@ map <leader>n :call RenameFile()<CR>
 nmap <leader>t :CommandTFlush<CR>\|:CommandT<CR>
 nmap <leader>T :CommandTFlush<CR>
 
+" cf. https://wincent.com/issues/1555 and https://wincent.com/issues/1542
+set wildignore+=*.o,*.obj,.git,*.jpg,*.gif,*.jpeg,*.png,*.ico
+set wildignore+=**/vendor/plugins/**,**/vendor/gems/**,**/temp/**,**/tmp/**
+
 
 " NERDTree
 " --------
