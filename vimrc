@@ -86,7 +86,7 @@ set hlsearch " highlight search terms
 set incsearch " start hihglighting (partial) matches as soon as you start typing letters after '/'
 
 " search through files' contents
-nnoremap <leader>a :Grep 
+nnoremap <leader>a :Ack 
 
 
 " Custom Gimmicks
