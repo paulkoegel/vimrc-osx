@@ -195,8 +195,8 @@ vnoremap <D-down> Gg$
 " =======================
 
 " VIMRC
-nnoremap <leader>gv :tabnew $MYVIMRC<CR>
-nnoremap <leader>gV :source $MYVIMRC<CR>
+nnoremap <leader>gV :tabnew $MYVIMRC<CR>
+nnoremap <leader>gv :source $MYVIMRC<CR>
 
 " map ,v and ,e to open files in the same directory as the current file
 " source: destroy all software screencasts: vim file navigation
@@ -222,7 +222,7 @@ map <leader>n :call RenameFile()<CR>
 " COMMAND T
 " ---------
 "  defaults to <leader> t
-nmap <leader>t :CommandTFlush<CR>
+nmap <leader>t :CommandTFlush<CR>\|:CommandT<CR>
 nmap <leader>T :CommandTFlush<CR>
 
 
