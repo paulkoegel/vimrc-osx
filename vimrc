@@ -131,6 +131,8 @@ noremap <Down> gj
 noremap <Up> gk
 inoremap <Down> <C-o>gj
 inoremap <Up> <C-o>gk
+inoremap <S-up> <C-o>vgk
+inoremap <S-down> <C-o>vgj
 
 " CTRL-A is Select all
 noremap  <C-A> gggH<C-O>G
