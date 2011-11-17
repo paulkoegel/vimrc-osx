@@ -10,7 +10,6 @@
 " <C-O> switch to normal mode for the following alias command
 " <left>, <right>, <up>, <down> arrow keys
 
-
 call pathogen#infect()
 
 " GENERAL SETUP
@@ -39,22 +38,36 @@ set linebreak
 " UI DESIGN
 " =========
 
+" these two cause trouble when i reload my vimrc
+" (which i have to do every time i start vim, at the moment, because otherwise
+" <D-left> won't jump to the first character of the line) - Rails's 'render',
+" e.g., will not be hightlighted anymore.
+" syntax highlighting on program start is still fine - maybe this is too late a point to
+" call these two?
+
+" commenting out these causes the following error:
+"Error detected while processing /usr/local/Cellar/macvim/7.3-62/MacVim.app/Contents/Resources/vim/runtime/menu.vim:
+"line  450:
+" 'E329': No menu '&Tools'
+"line 1205:
+" 'E334': Menu not found: Tools.Spelling.To\ Next\ error^I]s
+" 'E334': Menu not found: Tools.Spelling.To\ Next\ error^I]sError detected while processing /usr/local/Cellar/macvim/7.3-62/MacVim.app/Contents/Resources/vim/runtime/menu.vim:
+" but fixed syntax highlighting problems
+syntax enable
+filetype plugin indent on
+
 colorscheme molokai
-"syntax enable
 "set background=dark
 "colorscheme solarized
 
 set t_Co=256 " enable 256 colors within vim - grey background, proper syntax highlighting etc.
-set gfn=Menlo:h14
+set gfn=Menlo:h13
 "set gfn=Inconsolata:h15
 set guioptions-=T "remove toolbar
 
 " start fullscreen
 set lines=999
 set columns=999
-
-syntax on
-filetype plugin indent on
 
 
 " FILETYPES
@@ -86,7 +99,16 @@ set hlsearch " highlight search terms
 set incsearch " start hihglighting (partial) matches as soon as you start typing letters after '/'
 
 " search through files' contents
-nnoremap <leader>a :Ack 
+" Grep.vim
+let Grep_Path = '/usr/local/Cellar/grep/2.9/bin/grep'
+
+" Rgrep fails with 'illegal option -- -' even for Grep 2.9
+"nnoremap <leader>a :Rgrep 
+
+" Git-Grep.Vim
+nnoremap <leader>a :GitGrep 
+" Ack
+"nnoremap <leader>A :Ack 
 
 
 " Custom Gimmicks
@@ -171,12 +193,9 @@ nnoremap <S-A-right> vw<S-left>
 inoremap <S-A-left> <C-O>vb
 inoremap <S-A-right> <C-O>vw<S-left>
 
-" smart home key for indented lines: go to first non-blank character (not start of line) of display line (not
-" numbered line)
+" smart home key for indented lines: go to first non-blank character (not start of line) of display line (not numbered line)
 nnoremap <D-left> g^
 nnoremap <D-right> g$
-vnoremap <D-left> g^
-vnoremap <D-right> g$
 inoremap <D-left> <C-O>g^
 inoremap <D-right> <C-O>g$
 "alternatively: vg^ to automatically enter visual mode first
@@ -197,8 +216,16 @@ vnoremap <D-down> Gg$
 " =======================
 
 " VIMRC
-nnoremap <leader>gV :tabnew $MYVIMRC<CR>
-nnoremap <leader>gv :source $MYVIMRC<CR>
+nnoremap <silent> <leader>gV :tabnew $MYVIMRC<CR>
+nnoremap <silent> <leader>gv :so $MYVIMRC<CR>
+
+" hack - for saome reason i need to reload these even after my vimrc has
+" loaded in order for my command shortcuts to work -  really weird! reloading
+" the entire .vimrc breaks Rails.vim syntax highlighting (e.g. 'render' is not green anymore)
+nnoremap <silent> <leader>gc :so ~/.vim/command_shortcuts.vim<CR>
+
+"nmap <silent> <leader>ev :e $MYVIMRC<CR>
+"nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 " map ,v and ,e to open files in the same directory as the current file
 " source: destroy all software screencasts: vim file navigation
