@@ -1,3 +1,16 @@
+nnoremap <A-left> b
+nnoremap <A-right> w
+inoremap <A-left> <C-O>b
+inoremap <A-right> <C-O>w
+vnoremap <A-left> b
+vnoremap <A-right> w
+snoremap <A-left> <C-O>b
+snoremap <A-right> <C-O>w
+nnoremap <S-A-left> vb
+nnoremap <S-A-right> vw<S-left>
+inoremap <S-A-left> <C-O>vb
+inoremap <S-A-right> <C-O>vw<S-left>
+
 nnoremap <D-left> g^
 nnoremap <D-right> g$
 inoremap <D-left> <C-O>g^

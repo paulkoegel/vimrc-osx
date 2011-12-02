@@ -131,7 +131,8 @@ nmap <C-Delete> :tabclose<CR>
 " USABILITY
 " ---------
 
-nnoremap <C-^> :q<CR>
+nnoremap <D-w> :q<CR>
+
 
 "command alias for saving
 :ca W w
@@ -139,8 +140,6 @@ nnoremap <C-^> :q<CR>
 " move by display lines
 nnoremap j gj
 nnoremap k gk
-vnoremap j gj
-vnoremap k gk
 nnoremap <Down> gj
 nnoremap <Up> gk
 nnoremap <S-Down> vgj
