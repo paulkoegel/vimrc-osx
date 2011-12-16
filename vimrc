@@ -181,11 +181,26 @@ nmap <leader>L :botright vnew<CR>
 nmap <leader>K :topleft  new<CR>
 nmap <leader>J :botright new<CR>
 
+" window with same content
+nmap <leader>HH :topleft  vnew %:p<CR>
+nmap <leader>LL :botright vnew %:p<CR>
+nmap <leader>KK :topleft  new %:p<CR>
+nmap <leader>JJ :botright new %:p<CR>
+
 " buffer
 nmap <leader>h :leftabove  vnew<CR>
 nmap <leader>l :rightbelow vnew<CR>
 nmap <leader>k :leftabove  new<CR>
 nmap <leader>j :rightbelow new<CR>
+
+" buffer with same content
+nmap <leader>hh :leftabove  vnew<CR>
+nmap <leader>ll :rightbelow vnew<CR>
+nmap <leader>kk :leftabove  new<CR>
+nmap <leader>jj :rightbelow new<CR>
+
+
+" CTRL/CMD movement (CONTROL, COMMAND)
 
 " one word forward / back
 nnoremap <A-left> b
