@@ -120,12 +120,22 @@ imap <C-w> <C-O>i
 
 " TABS
 " ----
-map <C-t><up> :tabr<cr>
-map <C-t><down> :tabl<cr>
-map <C-t><left> :tabp<cr>
-map <C-t><right> :tabn<cr>
-map <C-t><z> :tabnew<cr>
+map <C-t><up> :tabr<CR>
+map <C-t><down> :tabl<CR>
+map <C-t><left> :tabp<CR>
+map <C-t><right> :tabn<CR>
+map <C-t><z> :tabnew<CR>
 nmap <C-Delete> :tabclose<CR>
+
+map <D-1> <C-O>1gt<CR>
+map <D-2> <C-O>2gt<CR>
+map <D-3> <C-O>3gt<CR>
+map <D-4> <C-O>4gt<CR>
+map <D-5> <C-O>5gt<CR>
+map <D-6> <C-O>6gt<CR>
+map <D-7> <C-O>7gt<CR>
+map <D-8> <C-O>8gt<CR>
+map <D-9> <C-O>9gt<CR>
 
 
 " USABILITY
