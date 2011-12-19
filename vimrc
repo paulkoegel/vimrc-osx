@@ -41,7 +41,7 @@ set linebreak
 " these two cause trouble when i reload my vimrc
 " (which i have to do every time i start vim, at the moment, because otherwise
 " <D-left> won't jump to the first character of the line) - Rails's 'render',
-" e.g., will not be hightlighted anymore.
+" e.g., will not be highlighted anymore.
 " syntax highlighting on program start is still fine - maybe this is too late a point to
 " call these two?
 
@@ -142,6 +142,7 @@ map <D-9> <C-O>9gt<CR>
 " ---------
 
 nnoremap <D-w> :q<CR>
+nnoremap <D-e> :enew<CR>
 
 
 "command alias for saving
@@ -310,3 +311,8 @@ let g:nerdtree_tabs_synchronize_view = 1
 " EasyGrep (cf. http://dailyconfig.googlecode.com/svn/trunk/.vimrc)
 " --------
 let g:EasyGrepRecursive = 1
+
+" Commenter
+" ---------
+map <leader>c :TComment<CR>
+map <leader>C :TCommentBlock<CR>
