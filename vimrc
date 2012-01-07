@@ -10,16 +10,20 @@
 " <C-O> switch to normal mode for the following alias command
 " <left>, <right>, <up>, <down> arrow keys
 
-call pathogen#infect()
-
 " GENERAL SETUP
 " -------------
-
 set nocompatible
+syntax enable
+set encoding=utf-8
+filetype plugin indent on
+
+call pathogen#infect()
 
 set mouse=a
 "source $VIMRUNTIME/mswin.vim
 "behave mswin
+
+set shell=/bin/sh
 
 set tabstop=2
 set shiftwidth=2
@@ -28,12 +32,14 @@ set expandtab
 set encoding=utf-8
 set enc=utf-8
 set fileencodings=utf-8,latin2,latin2
-set ignorecase
 set backspace=indent,eol,start
 set number
 set smartindent
 set linebreak
+set ruler
+set scrolloff=5
 
+set timeoutlen=500              " if you have two commands, ',dv' and ',d' it will take 'timeoutlen' milliseconds to recognize which one you're going for
 
 " UI DESIGN
 " =========
@@ -53,8 +59,6 @@ set linebreak
 " 'E334': Menu not found: Tools.Spelling.To\ Next\ error^I]s
 " 'E334': Menu not found: Tools.Spelling.To\ Next\ error^I]sError detected while processing /usr/local/Cellar/macvim/7.3-62/MacVim.app/Contents/Resources/vim/runtime/menu.vim:
 " but fixed syntax highlighting problems
-syntax enable
-filetype plugin indent on
 
 colorscheme molokai
 "set background=dark
@@ -90,33 +94,34 @@ set directory=~/.vim_backups//
 
 let mapleader = ","
 
-nnoremap <leader><space> :noh<cr>
+nnoremap <leader><space> :noh<CR>
 
 
 " SEARCH
 " ------
-set hlsearch " highlight search terms
-set incsearch " start hihglighting (partial) matches as soon as you start typing letters after '/'
+set ignorecase                  " searches are case insensitive...
+set smartcase                   " ... unless they contain at least one capital letter
+set hlsearch                    " highlight search terms
+set incsearch                   " start highlighting (partial) matches as soon as you start typing letters after '/'
 
 " search through files' contents
 " Grep.vim
-let Grep_Path = '/usr/local/Cellar/grep/2.9/bin/grep'
-
-" Rgrep fails with 'illegal option -- -' even for Grep 2.9
-"nnoremap <leader>a :Rgrep 
+" let Grep_Path = '/usr/local/Cellar/grep/2.9/bin/grep'
 
 " Git-Grep.Vim
 nnoremap <leader>a :GitGrep 
-" Ack
-"nnoremap <leader>A :Ack 
 
 
 " Custom Gimmicks
 " ---------------
-
 " shortcut for hash rocket
 imap <C-q> <Space>=><Space>
 imap <C-w> <C-O>i
+
+" insert blank lines without leaving insert mode (cf. 12.15 here: http://vimdoc.sourceforge.net/htmldoc/vimfaq.html)
+nmap <D-j> :put=''<CR>
+nmap <D-k> :put!=''<CR>
+
 
 " TABS
 " ----
@@ -127,20 +132,19 @@ map <C-t><right> :tabn<CR>
 map <C-t><z> :tabnew<CR>
 nmap <C-Delete> :tabclose<CR>
 
-map <D-1> <C-O>1gt<CR>
-map <D-2> <C-O>2gt<CR>
-map <D-3> <C-O>3gt<CR>
-map <D-4> <C-O>4gt<CR>
-map <D-5> <C-O>5gt<CR>
-map <D-6> <C-O>6gt<CR>
-map <D-7> <C-O>7gt<CR>
-map <D-8> <C-O>8gt<CR>
-map <D-9> <C-O>9gt<CR>
+nmap <D-1> 1gt<CR>
+nmap <D-2> 2gt<CR>
+nmap <D-3> 3gt<CR>
+nmap <D-4> 4gt<CR>
+nmap <D-5> 5gt<CR>
+nmap <D-6> 6gt<CR>
+nmap <D-7> 7gt<CR>
+nmap <D-8> 8gt<CR>
+nmap <D-9> 9gt<CR>
 
 
 " USABILITY
 " ---------
-
 nnoremap <D-w> :q<CR>
 nnoremap <D-e> :enew<CR>
 
@@ -195,10 +199,10 @@ nmap <leader>k :leftabove  new<CR>
 nmap <leader>j :rightbelow new<CR>
 
 " buffer with same content
-nmap <leader>hh :leftabove  vnew<CR>
-nmap <leader>ll :rightbelow vnew<CR>
-nmap <leader>kk :leftabove  new<CR>
-nmap <leader>jj :rightbelow new<CR>
+nmap <leader>hh :leftabove  vnew %:p<CR>
+nmap <leader>ll :rightbelow vnew %:p<CR>
+nmap <leader>kk :leftabove  new %:p<CR>
+nmap <leader>jj :rightbelow new %:p<CR>
 
 
 " CTRL/CMD movement (CONTROL, COMMAND)
@@ -307,10 +311,6 @@ let g:nerdtree_tabs_autoclose = 1
 
 " Synchronize view of all NERDTree windows (scroll and cursor position)
 let g:nerdtree_tabs_synchronize_view = 1
-
-" EasyGrep (cf. http://dailyconfig.googlecode.com/svn/trunk/.vimrc)
-" --------
-let g:EasyGrepRecursive = 1
 
 " Commenter
 " ---------
