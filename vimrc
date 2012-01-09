@@ -39,6 +39,9 @@ set linebreak
 set ruler
 set scrolloff=5
 
+set wrap
+set display=lastline " imagine you have a a single non-breaking line that spans several screens. as soon as wrapping is activated, vim will display '@' signs as placeholders for the wrapped lines when you scroll with the mousewheel. by setting this option, the actual content and not the '@' sign will be shown.
+
 set timeoutlen=500              " if you have two commands, ',dv' and ',d' it will take 'timeoutlen' milliseconds to recognize which one you're going for
 
 " UI DESIGN
