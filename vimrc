@@ -130,8 +130,8 @@ nmap <D-k> :put!=''<CR>
 " ----
 map <C-t><up> :tabr<CR>
 map <C-t><down> :tabl<CR>
-map <C-t><left> :tabp<CR>
-map <C-t><right> :tabn<CR>
+map <D-M-left> :tabp<CR>
+map <D-M-right> :tabn<CR>
 map <C-t><z> :tabnew<CR>
 nmap <C-Delete> :tabclose<CR>
 
