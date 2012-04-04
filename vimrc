@@ -68,7 +68,7 @@ colorscheme molokai
 "colorscheme solarized
 
 set t_Co=256 " enable 256 colors within vim - grey background, proper syntax highlighting etc.
-set gfn=Menlo:h13
+set gfn=Menlo:h14
 "set gfn=Inconsolata:h15
 set guioptions-=T "remove toolbar
 
