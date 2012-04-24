@@ -82,6 +82,7 @@ set columns=999
 " RABL support
 autocmd BufRead,BufNewFile *.rabl setf ruby
 autocmd BufRead,BufNewFile *.pde setf javascript
+autocmd BufRead,BufNewFile *.hamlbars set haml
 
 " BACKUPS
 " =======
@@ -319,3 +320,12 @@ let g:nerdtree_tabs_synchronize_view = 1
 " ---------
 map <leader>c :TComment<CR>
 map <leader>C :TCommentBlock<CR>
+
+" Tabular
+" -------
+if exists(":Tabularize")
+  nmap <leader>a= :Tabularize /=<CR>
+  vmap <leader>a= :Tabularize /=<CR>
+  nmap <leader>a: :Tabularize /:\zs<CR>
+  vmap <leader>a: :Tabularize /:\zs<CR>
+endif
