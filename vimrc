@@ -190,11 +190,11 @@ nmap <leader>L :botright vnew<CR>
 nmap <leader>K :topleft  new<CR>
 nmap <leader>J :botright new<CR>
 
-" window with same content
-nmap <leader>HH :topleft  vnew %:p<CR>
-nmap <leader>LL :botright vnew %:p<CR>
-nmap <leader>KK :topleft  new %:p<CR>
-nmap <leader>JJ :botright new %:p<CR>
+" window with test
+nmap <leader>HH :topleft  vnew %:p<CR>:A<CR>
+nmap <leader>LL :botright vnew %:p<CR>:A<CR>
+nmap <leader>KK :topleft  new %:p<CR>:A<CR>
+nmap <leader>JJ :botright new %:p<CR>:A<CR>
 
 " buffer
 nmap <leader>h :leftabove  vnew<CR>
@@ -202,11 +202,11 @@ nmap <leader>l :rightbelow vnew<CR>
 nmap <leader>k :leftabove  new<CR>
 nmap <leader>j :rightbelow new<CR>
 
-" buffer with same content
-nmap <leader>hh :leftabove  vnew %:p<CR>
-nmap <leader>ll :rightbelow vnew %:p<CR>
-nmap <leader>kk :leftabove  new %:p<CR>
-nmap <leader>jj :rightbelow new %:p<CR>
+" buffer with test
+nmap <leader>hh :leftabove  vnew %:p<CR>:A<CR>
+nmap <leader>ll :rightbelow vnew %:p<CR>:A<CR>
+nmap <leader>kk :leftabove  new %:p<CR>:A<CR>
+nmap <leader>jj :rightbelow new %:p<CR>:A<CR>
 
 
 " CTRL/CMD movement (CONTROL, COMMAND)
