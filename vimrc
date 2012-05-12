@@ -82,7 +82,8 @@ set columns=999
 " RABL support
 autocmd BufRead,BufNewFile *.rabl setf ruby
 autocmd BufRead,BufNewFile *.pde setf javascript
-autocmd BufRead,BufNewFile *.hamlbars set haml
+autocmd BufRead,BufNewFile *.hamlbars setf haml
+autocmd BufRead,BufNewFile *.hamlc setf haml
 
 " BACKUPS
 " =======
