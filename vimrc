@@ -77,6 +77,12 @@ set lines=999
 set columns=999
 
 
+" LOCALISATION
+" ============
+set langmenu=en_GB.UTF-8    " sets the language of the menu (gvim)
+language en                 " sets the language of the messages / ui (vim)
+
+
 " FILETYPES
 " =========
 " RABL support
@@ -332,3 +338,39 @@ if exists(":Tabularize")
   nmap <leader>a: :Tabularize /:\zs<CR>
   vmap <leader>a: :Tabularize /:\zs<CR>
 endif
+
+" iAWriter mode, cf. http://laktek.com/2012/09/05/distraction-free-writing-with-vim
+" =============
+
+" Toggle spell-checking
+:map <F5> :setlocal spell! spelllang=en_GB<CR>
+
+" turn-on distraction free writing mode for markdown files
+" au BufNewFile,BufRead *.{md,mdown,mkd,mkdn,markdown,mdwn} call DistractionFreeWriting()
+
+nnoremap <leader>df :call DistractionFreeWriting()<CR>
+nnoremap <leader>DF :call NormalWriting()<CR>
+
+function! DistractionFreeWriting()
+	colorscheme iawriter
+	set background=light
+	set gfn=Cousine:h14                                     " font to use
+	set lines=40 columns=100  				" size of the editable area
+	set fuoptions=background:#00f5f6f6                      " bakground color
+	set guioptions-=r 					" remove righ scrollbar
+	set laststatus=0 					" don't show status line
+	set noruler 						" don't show ruler
+  set fullscreen 						" go to fullscreen editing mode
+	set linebreak 						" break the lines on words
+endfunction
+
+function! NormalWriting()
+  colorscheme molokai
+  set gfn=Menlo:h14
+  set lines=999
+  set columns=999
+  set guioptions+=r
+  set laststatus=1
+  set ruler
+  set nofullscreen
+endfunction
