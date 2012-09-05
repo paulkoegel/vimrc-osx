@@ -147,6 +147,8 @@ nmap <D-7> 7gt<CR>
 nmap <D-8> 8gt<CR>
 nmap <D-9> 9gt<CR>
 
+" switch to normal mode when changing tabs
+autocmd TabEnter * stopinsert
 
 " USABILITY
 " ---------
@@ -253,7 +255,7 @@ vnoremap <D-down> Gg$
 nnoremap <silent> <leader>gV :tabnew $MYVIMRC<CR>
 nnoremap <silent> <leader>gv :so $MYVIMRC<CR>
 
-" hack - for saome reason i need to reload these even after my vimrc has
+" hack - for some reason i need to reload these even after my vimrc has
 " loaded in order for my command shortcuts to work -  really weird! reloading
 " the entire .vimrc breaks Rails.vim syntax highlighting (e.g. 'render' is not green anymore)
 nnoremap <silent> <leader>gc :so ~/.vim/command_shortcuts.vim<CR>
