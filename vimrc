@@ -90,6 +90,8 @@ autocmd BufRead,BufNewFile *.rabl setf ruby
 autocmd BufRead,BufNewFile *.pde setf javascript
 autocmd BufRead,BufNewFile *.hamlbars setf haml
 autocmd BufRead,BufNewFile *.hamlc setf haml
+autocmd BufEnter,BufRead,BufNewFile *_spec.coffee setf jasmine.coffee
+" Sets *Spec.js and *SpecHelper.js files to filetype=jasmine.javascript syntax=jasmine
 
 " BACKUPS
 " =======
