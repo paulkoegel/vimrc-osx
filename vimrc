@@ -80,7 +80,7 @@ set columns=999
 " LOCALISATION
 " ============
 set langmenu=en_GB.UTF-8    " sets the language of the menu (gvim)
-language en                 " sets the language of the messages / ui (vim)
+"language en                 " sets the language of the messages / ui (vim) - throws an error for me: E197: Cannot set language to 'en'
 
 
 " FILETYPES
@@ -356,8 +356,10 @@ nnoremap <leader>DF :call NormalWriting()<CR>
 function! DistractionFreeWriting()
 	colorscheme iawriter
 	set background=light
-	set gfn=Cousine:h14                                     " font to use
-	set lines=40 columns=100  				" size of the editable area
+	"set gfn=Cousine:h14                                     " font to use
+	set gfn=Cousine:h22                                     " font to use
+	"set lines=40 columns=100  				" size of the editable area
+	set lines=40 columns=90  				" size of the editable area
 	set fuoptions=background:#00f5f6f6                      " bakground color
 	set guioptions-=r 					" remove righ scrollbar
 	set laststatus=0 					" don't show status line
