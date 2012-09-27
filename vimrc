@@ -89,7 +89,7 @@ set langmenu=en_GB.UTF-8    " sets the language of the menu (gvim)
 autocmd BufRead,BufNewFile *.rabl setf ruby
 autocmd BufRead,BufNewFile *.pde setf javascript
 autocmd BufRead,BufNewFile *.hamlbars setf haml
-autocmd BufRead,BufNewFile *.hamlc setf haml
+autocmd BufEnter,BufRead,BufNewFile *.hamlc setf haml
 autocmd BufEnter,BufRead,BufNewFile *_spec.coffee setf jasmine.coffee
 " Sets *Spec.js and *SpecHelper.js files to filetype=jasmine.javascript syntax=jasmine
 
@@ -340,6 +340,7 @@ if exists(":Tabularize")
   nmap <leader>a: :Tabularize /:\zs<CR>
   vmap <leader>a: :Tabularize /:\zs<CR>
 endif
+
 
 " iAWriter mode, cf. http://laktek.com/2012/09/05/distraction-free-writing-with-vim
 " =============

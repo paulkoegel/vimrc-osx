@@ -28,3 +28,6 @@
 [submodule "bundle/jasmine"]
 	path = bundle/jasmine
 	url = git://github.com/claco/jasmine.vim.git
+[submodule "bundle/vim-css-color"]
+	path = bundle/vim-css-color
+	url = https://github.com/skammer/vim-css-color
