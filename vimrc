@@ -90,8 +90,8 @@ autocmd BufRead,BufNewFile *.rabl setf ruby
 autocmd BufRead,BufNewFile *.pde setf javascript
 autocmd BufRead,BufNewFile *.hamlbars setf haml
 autocmd BufEnter,BufRead,BufNewFile *.hamlc setf haml
-autocmd BufEnter,BufRead,BufNewFile *_spec.coffee setf jasmine.coffee
-" Sets *Spec.js and *SpecHelper.js files to filetype=jasmine.javascript syntax=jasmine
+autocmd BufEnter,BufRead,BufNewFile *_spec.coffee setf jasmine.coffee " Sets *Spec.js and *SpecHelper.js files to filetype=jasmine.javascript syntax=jasmine
+autocmd BufEnter,BufRead,BufNewFile *.mustache setf html
 
 " BACKUPS
 " =======
@@ -298,9 +298,10 @@ map <leader>n :call RenameFile()<CR>
 nmap <leader>t :CommandTFlush<CR>\|:CommandT<CR>
 nmap <leader>T :CommandTFlush<CR>
 
-" cf. https://wincent.com/issues/1555 and https://wincent.com/issues/1542
-set wildignore+=*.o,*.obj,.git,*.jpg,*.gif,*.jpeg,*.png,*.ico
-set wildignore+=**/vendor/plugins/**,**/vendor/gems/**,**/temp/**,**/tmp/**
+" cf. https://github.com/wincent/Command-T, https://wincent.com/issues/1555, and https://wincent.com/issues/1542
+set wildignore+=*.o,*.obj,.git ",*.jpg,*.gif,*.jpeg,*.png,*.ico
+set wildignore+=**/vendor/plugins/**,**/vendor/gems/**,**/temp/**,**/tmp/**,**/vendor/rails/**,**/vendor/ruby/**,**/node_modules/**
+
 
 
 " NERDTree
@@ -361,8 +362,8 @@ function! DistractionFreeWriting()
 	set gfn=Cousine:h22                                     " font to use
 	"set lines=40 columns=100  				" size of the editable area
 	set lines=40 columns=90  				" size of the editable area
-	set fuoptions=background:#00f5f6f6                      " bakground color
-	set guioptions-=r 					" remove righ scrollbar
+	set fuoptions=background:#00f5f6f6                      " background color
+	set guioptions-=r 					" remove right scrollbar
 	set laststatus=0 					" don't show status line
 	set noruler 						" don't show ruler
   set fullscreen 						" go to fullscreen editing mode
