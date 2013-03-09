@@ -164,8 +164,9 @@ nnoremap <D-w> :q<CR>
 nnoremap <D-e> :enew<CR>
 
 
-"command alias for saving
+" command alias for saving and opening files
 :ca W w
+:ca E e
 
 " move by display lines
 nnoremap j gj
@@ -300,8 +301,7 @@ nmap <leader>T :CommandTFlush<CR>
 
 " cf. https://github.com/wincent/Command-T, https://wincent.com/issues/1555, and https://wincent.com/issues/1542
 set wildignore+=*.o,*.obj,.git ",*.jpg,*.gif,*.jpeg,*.png,*.ico
-set wildignore+=**/vendor/plugins/**,**/vendor/gems/**,**/temp/**,**/tmp/**,**/vendor/rails/**,**/vendor/ruby/**,**/node_modules/**
-
+set wildignore+=**/vendor/plugins/**,**/vendor/gems/**,**/temp/**,**/tmp/**,**/vendor/rails/**,**/vendor/ruby/**,**/node_modules/**,**/dist/**
 
 
 " NERDTree
