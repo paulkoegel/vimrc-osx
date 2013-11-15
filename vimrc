@@ -75,6 +75,7 @@ set guioptions-=T "remove toolbar
 " start fullscreen
 set lines=999
 set columns=999
+" set colorcolumn=80 " highlight column 80
 
 
 " LOCALISATION
